@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Docker &mdash; CRG Course - Containers: Docker and Singularity. June 2022  documentation</title>
@@ -13,12 +13,9 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
-    <link rel="author" title="About these documents" href="about.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Docker 2" href="docker_2.html" />
@@ -30,18 +27,21 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> CRG Course - Containers: Docker and Singularity. June 2022
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CRG Course - Containers: Docker and Singularity. June 2022
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="about.html">About the course</a></li>
 <li class="toctree-l1"><a class="reference internal" href="containers.html">Containers</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Docker</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction-to-docker">Introduction to Docker</a><ul>
@@ -92,8 +92,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Docker</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Docker</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/docker.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -335,21 +335,21 @@
 <li><p>Copy the jpg image back from the stopped container! Try new command <cite>docker cp</cite>.</p></li>
 </ul>
 <details>
-<summary><a>Suggested solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Pull image
+<summary><a>Suggested solution</a></summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Pull<span class="w"> </span>image
 <span class="go">docker pull acleancoder/imagemagick-full</span>
 
-<span class="gp"># </span>Check version of <span class="sb">`</span>convert<span class="sb">`</span>
+<span class="gp"># </span>Check<span class="w"> </span>version<span class="w"> </span>of<span class="w"> </span><span class="sb">`</span>convert<span class="sb">`</span>
 <span class="go">docker run acleancoder/imagemagick-full convert --version</span>
 
-<span class="gp"># </span>Start interactive container
+<span class="gp"># </span>Start<span class="w"> </span>interactive<span class="w"> </span>container
 <span class="go">docker run -it acleancoder/imagemagick-full</span>
-<span class="gp">  # </span>fetch png image
+<span class="gp">  # </span>fetch<span class="w"> </span>png<span class="w"> </span>image
 <span class="go">  &gt; wget  https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png</span>
-<span class="gp">  # </span>convert to jpg
+<span class="gp">  # </span>convert<span class="w"> </span>to<span class="w"> </span>jpg
 <span class="go">  &gt; convert vertical-logo-monochromatic.png myimage.jpg</span>
-<span class="gp">  # </span><span class="nb">exit</span> container
+<span class="gp">  # </span><span class="nb">exit</span><span class="w"> </span>container
 
-<span class="gp"># </span>fetch container ID with <span class="sb">`</span>ps -a<span class="sb">`</span> and use <span class="sb">`</span>docker cp<span class="sb">`</span> to copy jpg file from the stopped container to the host
+<span class="gp"># </span>fetch<span class="w"> </span>container<span class="w"> </span>ID<span class="w"> </span>with<span class="w"> </span><span class="sb">`</span>ps<span class="w"> </span>-a<span class="sb">`</span><span class="w"> </span>and<span class="w"> </span>use<span class="w"> </span><span class="sb">`</span>docker<span class="w"> </span>cp<span class="sb">`</span><span class="w"> </span>to<span class="w"> </span>copy<span class="w"> </span>jpg<span class="w"> </span>file<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>stopped<span class="w"> </span>container<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>host
 <span class="go">docker cp *CONTAINER_ID*:/myimage.jpg .</span>
 </pre></div>
 </div>
